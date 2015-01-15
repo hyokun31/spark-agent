@@ -1,0 +1,8 @@
+RULE Get Spark Master Class
+CLASS org.apache.spark.deploy.master.Master
+METHOD preStart
+AT EXIT
+BIND buffer = $*;
+IF true
+DO com.edard.spark.agent.Agent.start(buffer)
+ENDRULE
